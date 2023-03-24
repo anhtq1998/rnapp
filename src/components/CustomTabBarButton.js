@@ -1,14 +1,14 @@
 import React from 'react';
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
-import {COLORS} from '../constants';
-import Svg, {Path} from 'react-native-svg';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { COLORS } from '../constants';
+import Svg, { Path } from 'react-native-svg';
 
 const CustomTabBarButton = props => {
-  const {route, children, accessibilityState, onPress} = props;
+  const { route, children, accessibilityState, onPress } = props;
   if (accessibilityState.selected) {
     return (
       <View style={styles.btnWrapper}>
-        <View style={{flexDirection: 'row'}}>
+        <View style={{ flexDirection: 'row' }}>
           <View
             style={[
               styles.svgGapFiller,
@@ -37,7 +37,7 @@ const CustomTabBarButton = props => {
           activeOpacity={1}
           onPress={onPress}
           style={[styles.activeBtn]}>
-          <Text>{children}</Text>
+          {children}
         </TouchableOpacity>
       </View>
     );
@@ -53,7 +53,7 @@ const CustomTabBarButton = props => {
             borderTopRightRadius: route === 'settings' ? 10 : 0,
           },
         ]}>
-        <Text>{children}</Text>
+        {children}
       </TouchableOpacity>
     );
   }

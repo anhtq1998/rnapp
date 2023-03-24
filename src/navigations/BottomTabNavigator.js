@@ -22,9 +22,8 @@ function BottomTabNavigator() {
         tabBarInactiveTintColor: COLORS.dark,
         tabBarStyle: styles.tabBarStyle,
         tabBarActiveTintColor: COLORS.activeButton,
-        tabBarIcon: ({ color, size, focused, ...props }) => {
+        tabBarIcon: ({ color, size, focused, }) => {
           let iconName;
-          console.log(props);
           if (route.name === ROUTES.HOME_TAB) {
             iconName = focused ? 'ios-home-sharp' : 'ios-home-outline';
           } else if (route.name === ROUTES.SETTINGS_NAVIGATOR) {
@@ -43,6 +42,8 @@ function BottomTabNavigator() {
         name={ROUTES.HOME_TAB}
         component={Home}
         options={{
+          title: 'Trang chủ',
+          headerShown: true,
           tabBarButton: props => <CustomTabBarButton route="home" {...props} />,
         }}
       />
@@ -77,7 +78,7 @@ function BottomTabNavigator() {
                   name={Platform.OS === 'ios' ? 'ios-menu' : 'md-menu'}
                   size={30}
                   color={COLORS.dark}
-                  style={{marginRight: 10}}
+                  style={{ marginRight: 10 }}
                 />
               </TouchableOpacity>
             );
